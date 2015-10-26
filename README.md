@@ -1,4 +1,2 @@
 # blog
-私人博客，访客请勿新建issue
-
-博客入口： [移步issues](https://github.com/haluo/blog/issues)
+这里汇集了我个人撰写以及网上搜集的有关技术文章
