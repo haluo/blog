@@ -4,41 +4,41 @@
 
 
 
-​	wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.1.3/rabbitmq-server-3.1.3-1.noarch.rpm
+​		wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.1.3/rabbitmq-server-3.1.3-1.noarch.rpm
 
-​	rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+​		rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
 
-​	yum -y install rabbitmq-server-3.1.3-1.noarch.rpm
+​		yum -y install rabbitmq-server-3.1.3-1.noarch.rpm
 
-​	chkconfig rabbitmq-server on
+​		chkconfig rabbitmq-server on
 
-​	rabbitmq-plugins enable rabbitmq_management
+​		rabbitmq-plugins enable rabbitmq_management
 
-​	rabbitmq-plugins enable rabbitmq_management_agent
+​		rabbitmq-plugins enable rabbitmq_management_agent
 
 
 
 新增用户
 
-​	rabbitmqctl  add_user  up   up123556 
+​		rabbitmqctl  add_user  up   up123556 
 
 设为超级管理员
 
-​	rabbitmqctl  set_user_tags  up  administrator
+​		rabbitmqctl  set_user_tags  up  administrator
 
 
 
 主从配置：
 
-​	nohup rabbitmq-server &
+​		nohup rabbitmq-server &
 
- 	rabbitmqctl stop_app
+ 		rabbitmqctl stop_app
 
- 	rabbitmqctl reset
+ 		rabbitmqctl reset
 
- 	rabbitmqctl join_cluster rabbit@upex1
+ 		rabbitmqctl join_cluster rabbit@upex1
 
-​	 rabbitmqctl start_app
+​	 	rabbitmqctl start_app
 
 
 
