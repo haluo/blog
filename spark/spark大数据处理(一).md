@@ -1,10 +1,3 @@
----
-layout: post
-category : spark
-tagline: ""
-tags : [spark]
----
-{% include JB/setup %}
 
 ### 前言
 前段时间将公司日志分析系统的实时分析由storm迁移到了spark-streaming,定时任务也全部换成了spark来计算。已经在线上跑了几个月
