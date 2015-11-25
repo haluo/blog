@@ -29,7 +29,7 @@ find / -type d  -maxdepth 1 -name 'data*' -exec mkdir {}/es \;
 chmod -R 777 /data*/es
 
 创建日志目录
-mkidr -p  /data/logs/es
+mkdir -p  /data/logs/es
 chmod -R 777 /data/logs/es
 
 ```
