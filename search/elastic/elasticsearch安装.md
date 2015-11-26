@@ -62,3 +62,13 @@ elasticsearch/bin/plugin install mobz/elasticsearch-head
 
 http://ip:9200/_plugin/head/ 可以查看显示效果
 ```
+
+###优化
+```
+bin/elasticsearch.in.sh
+中设置
+ES_MIN_MEM=8g
+ES_MAX_MEM=8g
+
+```
+
