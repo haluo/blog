@@ -104,3 +104,67 @@
   }
 }
 ```
+### app日志分析
+```
+
+{
+  "settings": {
+    "index": {
+      "number_of_replicas": "1",
+      "number_of_shards": "7"
+    }
+  },
+  "mappings": {
+    "log": {
+      "_all": {
+        "enabled": false
+      },
+      "_ttl" : {
+          "enabled" : true,
+          "default" : "20d"
+      },
+      "properties": {
+        "dtime": {
+          "type": "long"
+        },
+        "device": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "param": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string",
+          "index" : "no"
+        },
+        "status": {
+          "type": "long"
+        },
+        "appstime": {
+          "type": "long",
+          "index" : "no"
+        },
+        "scsrtime": {
+          "type": "long",
+          "index" : "no"
+        },
+        "scsstime": {
+          "type": "long",
+          "index" : "no"
+        },
+        "pkrtime": {
+          "type": "long",
+          "index" : "no"
+        },
+        "pkstime": {
+          "type": "long",
+          "index" : "no"
+        }
+      }
+    }        
+  }
+}
+```

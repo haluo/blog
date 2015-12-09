@@ -5,6 +5,7 @@
 apache网站下载 
 apache-flume-1.6.0-bin.tar 解压即可
 
+export JAVA_OPTS="-Xms1024m -Xmx1024m -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit"
 ##配置
 ---
 客户端agent
