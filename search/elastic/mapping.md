@@ -106,7 +106,6 @@
 ```
 ### app日志分析
 ```
-
 {
   "settings": {
     "index": {
@@ -131,7 +130,10 @@
           "type": "string"
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "fields": {
+            "agg": { "type" : "string", "index": "not_analyzed" }
+          }
         },
         "param": {
           "type": "string"
@@ -144,24 +146,19 @@
           "type": "long"
         },
         "appstime": {
-          "type": "long",
-          "index" : "no"
+          "type": "long"
         },
         "scsrtime": {
-          "type": "long",
-          "index" : "no"
+          "type": "long"
         },
         "scsstime": {
-          "type": "long",
-          "index" : "no"
+          "type": "long"
         },
         "pkrtime": {
-          "type": "long",
-          "index" : "no"
+          "type": "long"
         },
         "pkstime": {
-          "type": "long",
-          "index" : "no"
+          "type": "long"
         }
       }
     }        
