@@ -19,21 +19,34 @@ clientMainAgent.sinks    = k1
 
 clientMainAgent.sources.s1.type = exec
 clientMainAgent.sources.s1.shell = /bin/bash -c
-clientMainAgent.sources.s1.command = tail -F /data/logs/nginx/up.access.log 
+clientMainAgent.sources.s1.command =  tail -F  /data/logs/fastdfs_access.log
 clientMainAgent.sources.s1.channels = c1
-clientMainAgent.sources.s1.threads = 5
+clientMainAgent.sources.s1.threads = 10
+
+clientMainAgent.sources.s1.restart=true
+#clientMainAgent.sources.s1.restartThrottle=2000
+clientMainAgent.sources.s1.logStdErr=true
+#clientMainAgent.sources.s1.batchSize=1000
+#clientMainAgent.sources.s1.batchTimeout=1000
+
+
 
 # clientMainAgent FileChannel
 clientMainAgent.channels.c1.type = memory
 clientMainAgent.channels.c1.capacity = 100000
 clientMainAgent.channels.c1.keep-alive = 30
-clientMainAgent.channels.c1.transactionCapacity = 100
+clientMainAgent.channels.c1.transactionCapacity = 1000
 # clientMainAgent Sinks
 # k1 sink
 clientMainAgent.sinks.k1.channel = c1
 clientMainAgent.sinks.k1.type = avro
-clientMainAgent.sinks.k1.hostname = 192.168.194.135
-clientMainAgent.sinks.k1.port = 6005
+clientMainAgent.sinks.k1.hostname = f1.apm.qichecdn.com
+clientMainAgent.sinks.k1.port = 6002
+
+#clientMainAgent.sinks.k1.batch-size=1000
+#clientMainAgent.sinks.k1.connect-timeout=3000
+#clientMainAgent.sinks.k1.request-timeout=20000
+#clientMainAgent.sinks.k1.reset-connection-interval=3000
 ```
 
 服务端：
@@ -44,5 +57,7 @@ a1.sources = r2 r5 a1.sinks = k2 k5 a1.channels = c2 c5a1.sources.r2.type =
 
 ###执行
 nohup ./flume-ng agent --conf ../conf/   -f  ../conf/flume-conf.properties   -n clientMainAgent  -Dflume.root.logger=INFO   >/dev/null &
+
+nohup ./flume-ng agent --conf ../conf/ -f ../conf/flume-conf.properties -n clientMainAgent  >/dev/null &
 
 
