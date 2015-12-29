@@ -52,6 +52,10 @@ discovery.zen.minimum_master_nodes: 2
 
 discovery.zen.ping.unicast.hosts:["192.168.252.41","192.168.252.42","192.168.252.43"]
 
+
+script.inline: on
+script.indexed: on
+
 ```
 
 ###插件
@@ -61,6 +65,14 @@ discovery.zen.ping.unicast.hosts:["192.168.252.41","192.168.252.42","192.168.252
 elasticsearch/bin/plugin install mobz/elasticsearch-head
 
 http://ip:9200/_plugin/head/ 可以查看显示效果
+
+2.
+plugin  install lmenezes/elasticsearch-kopf
+
+3.IK中文分析
+
+https://github.com/medcl/elasticsearch-analysis-ik
+
 ```
 
 ###优化

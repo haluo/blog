@@ -139,8 +139,7 @@
           "type": "string"
         },
         "data": {
-          "type": "string",
-          "index" : "no"
+          "type": "string"
         },
         "status": {
           "type": "long"
