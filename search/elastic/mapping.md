@@ -139,7 +139,19 @@
           "type": "string"
         },
         "data": {
-          "type": "string"
+          "type": "string",
+          "index": "not_analyzed" 
+        },
+        "host": {
+          "type": "string",
+          "index": "not_analyzed" 
+        },
+        "api": {
+          "type": "string",
+          "index": "not_analyzed" 
+        },
+        "reqtype": {
+          "type": "long"
         },
         "status": {
           "type": "long"

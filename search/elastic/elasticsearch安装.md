@@ -48,13 +48,17 @@ network.host: 192.168.252.41
 
 discovery.zen.ping.multicast.enabled: false
 
-discovery.zen.minimum_master_nodes: 2
+discovery.zen.minimum_master_nodes: 5
 
 discovery.zen.ping.unicast.hosts:["192.168.252.41","192.168.252.42","192.168.252.43"]
 
 
 script.inline: on
 script.indexed: on
+
+cluster.routing.allocation.allow_rebalance: indices_all_active
+cluster.routing.allocation.cluster_concurrent_rebalance: 5
+cluster.routing.allocation.node_concurrent_recoveries: 5
 
 ```
 
