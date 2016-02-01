@@ -41,15 +41,63 @@
         "ip": {
           "type": "string",
           "index" : "not_analyzed"
+        },
+        "ex":{
+         "type": "string",
+          "index" : "not_analyzed"
         }
       }
     }
   }
 }
 ```
-###trace mapping
+###iis mapping
 ```
-
+{
+  "settings": {
+    "index": {
+      "number_of_replicas": "1",
+      "number_of_shards": "7"
+    }
+  },
+  "mappings": {
+    "iis": {
+      "_all": {
+        "enabled": false
+      },
+      "_ttl" : {          "enabled" : true,          "default" : "15d"	  },
+      "properties": {
+        "rip": {
+          "type": "string",
+          "index" : "not_analyzed"
+        },
+        "time": {
+          "type": "long"
+        },
+        "host": {
+          "type": "string",
+          "index" : "not_analyzed"
+        },
+        "created": {
+          "type": "long"
+        },
+        "code": {
+          "type": "long"
+        },
+        "cost": {
+          "type": "long"
+        },
+        "all": {
+          "type": "string"
+        },
+        "ip": {
+          "type": "string",
+          "index" : "not_analyzed"
+        }
+      }
+    }
+  }
+}
 ```
 
 ###RT mapping
@@ -110,7 +158,7 @@
   "settings": {
     "index": {
       "number_of_replicas": "1",
-      "number_of_shards": "7"
+      "number_of_shards": "5"
     }
   },
   "mappings": {
@@ -139,8 +187,52 @@
           "type": "string"
         },
         "data": {
-          "type": "string",
-          "index": "not_analyzed" 
+          "properties": {
+          	"syncstamp": {
+          		"type": "long"
+          	},
+          	"useragent": {
+          		"type": "string",
+          		"index": "not_analyzed" 
+          	},
+          	"cityid": {
+          		"type": "long"
+          	},
+          	"networkprovider": {
+          		"type": "string",
+          		"index": "not_analyzed" 
+          	},
+          	"reqtype": {
+          		"type": "long"
+          	},
+          	"errortype" :{
+          		"type": "long"
+          	},
+          	"errorsubtype" :{
+          		"type": "long"
+          	},
+          	"network" :{
+          		"type": "string",
+          		"index": "not_analyzed" 
+          	},
+          	"retrytype" :{
+          		"type": "long"
+          	},
+          	"channel" :{
+          		"type": "string",
+          		"index": "not_analyzed" 
+          	},
+          	"appid" :{
+          		"type": "long"
+          	},
+          	"platform" :{
+          		"type": "long"
+          	},
+          	"appversion" :{
+          		"type": "string",
+          		"index": "not_analyzed" 
+          	}
+          }
         },
         "host": {
           "type": "string",
