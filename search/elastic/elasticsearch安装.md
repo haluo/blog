@@ -88,3 +88,18 @@ ES_MAX_MEM=8g
 
 ```
 
+
+
+
+###  线程池。 ping次数
+```
+threadpool.bulk.type: fixed
+threadpool.bulk.size: 50
+threadpool.bulk.queue_size: 1000
+
+ping_retries: 20
+```
+
+
+
+

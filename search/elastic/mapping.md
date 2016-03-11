@@ -152,6 +152,42 @@
   }
 }
 ```
+##rt  meta
+```
+{
+  "settings": {
+    "index": {
+      "number_of_replicas": "1",
+      "number_of_shards": "7"
+    }
+  },
+  "mappings": {
+    "rt": {
+      "_all": {
+        "enabled": false
+      },
+      "_ttl" : {          "enabled" : true,          "default" : "15d"	  },
+      "properties": {
+        "dept": {
+          "type": "string",
+          "index" : "not_analyzed"
+        },
+        "group": {
+          "type": "string",
+          "index" : "not_analyzed"
+        },
+        "key": {
+          "type": "string",
+          "index" : "not_analyzed"
+        },
+        "extype": {
+          "type": "long"
+        }
+      }
+    }        
+  }
+}
+```
 ### app日志分析
 ```
 {
@@ -231,6 +267,10 @@
           	"appversion" :{
           		"type": "string",
           		"index": "not_analyzed" 
+          	},
+          	"domain" :{
+          		"type": "string",
+          		"index": "not_analyzed" 
           	}
           }
         },
@@ -262,6 +302,10 @@
         },
         "pkstime": {
           "type": "long"
+        },
+        "protocol": {
+          "type": "string",
+          "index": "not_analyzed" 
         }
       }
     }        
