@@ -16,18 +16,20 @@
       },
       "_ttl" : {
           "enabled" : true,
-          "default" : "15d"
+          "default" : "30d"
       },
       "properties": {
         "rip": {
           "type": "string",
-          "index" : "not_analyzed"
+          "ignore_above": 256,
+          "index" : "not_analyzed"          
         },
         "time": {
           "type": "long"
-        },
+        },        
         "host": {
           "type": "string",
+          "ignore_above": 256,
           "index" : "not_analyzed"
         },
         "created": {
@@ -44,12 +46,58 @@
         },
         "ip": {
           "type": "string",
+  		  "ignore_above": 256,	
           "index" : "not_analyzed"
         },
         "ex":{
          "type": "string",
+         "ignore_above": 256,
           "index" : "not_analyzed"
+        },
+        "url":{
+         "type": "string",
+         "ignore_above": 256,
+          "index" : "not_analyzed"
+        },
+        "cache":{
+         "type": "string",
+         "ignore_above": 256,
+          "index" : "not_analyzed"
+        },
+        "ua":{
+         "type": "string",
+         "ignore_above": 256,
+          "index" : "not_analyzed"
+        },
+        "bu":{
+         "type": "string",
+         "ignore_above": 256,
+          "index" : "not_analyzed"
+        },
+        "ncache":{
+         "type": "string",
+         "ignore_above": 256,
+          "index" : "not_analyzed"
+        },
+        "fip":{
+         "type": "string",
+         "ignore_above": 256,
+          "index" : "not_analyzed"
+        },        
+        "cip":{
+         "type": "string",
+         "ignore_above": 256,
+          "index" : "not_analyzed"
+        },
+        "refer":{
+         "type": "string",
+         "ignore_above": 256,
+          "index" : "not_analyzed"
+        },
+        "scscost": {
+          "type": "long"
         }
+        
       }
     }
   },
@@ -57,6 +105,61 @@
 }
 
 ```
+###scs old
+```
+{
+  "order": 2,
+  "template": "scs_*",
+  "settings": {},
+  "mappings": {
+    "scs": {
+      "_ttl": {
+        "enabled": true,
+        "default": "15d"
+      },
+      "properties": {
+        "rip": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "ex": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "time": {
+          "type": "long"
+        },
+        "host": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "created": {
+          "type": "long"
+        },
+        "code": {
+          "type": "long"
+        },
+        "cost": {
+          "type": "long"
+        },
+        "all": {
+          "type": "string"
+        },
+        "ip": {
+          "index": "not_analyzed",
+          "type": "string"
+        }
+      },
+      "_all": {
+        "enabled": false
+      }
+    }
+  },
+  "aliases": {}
+}
+```
+
+
 ###iis
 ```
 {
