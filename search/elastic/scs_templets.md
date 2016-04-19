@@ -2,38 +2,35 @@
 ```
 {
   "order": 2,
-  "template": "scs_*",	
+  "template": "scs_*",
   "settings": {
     "index": {
-      "number_of_replicas": "1",
-      "number_of_shards": "5"
+      "number_of_shards": "5",
+      "number_of_replicas": "1"
     }
   },
   "mappings": {
     "scs": {
+      "_ttl": {
+        "default": "30d",
+        "enabled": true
+      },
       "_all": {
         "enabled": false
       },
-      "_ttl" : {
-          "enabled" : true,
-          "default" : "30d"
-      },
       "properties": {
-        "rip": {
-          "type": "string",
-          "ignore_above": 256,
-          "index" : "not_analyzed"          
+        "all": {
+          "type": "string"
         },
-        "time": {
-          "type": "long"
-        },        
-        "host": {
-          "type": "string",
+        "ncache": {
           "ignore_above": 256,
-          "index" : "not_analyzed"
+          "index": "not_analyzed",
+          "type": "string"
         },
-        "created": {
-          "type": "long"
+        "cache": {
+          "ignore_above": 256,
+          "index": "not_analyzed",
+          "type": "string"
         },
         "code": {
           "type": "long"
@@ -41,63 +38,64 @@
         "cost": {
           "type": "long"
         },
-        "all": {
-          "type": "string"
+        "created": {
+          "type": "long"
         },
         "ip": {
-          "type": "string",
-  		  "ignore_above": 256,	
-          "index" : "not_analyzed"
+          "ignore_above": 256,
+          "index": "not_analyzed",
+          "type": "string"
         },
-        "ex":{
-         "type": "string",
-         "ignore_above": 256,
-          "index" : "not_analyzed"
+        "cip": {
+          "ignore_above": 256,
+          "index": "not_analyzed",
+          "type": "string"
         },
-        "url":{
-         "type": "string",
-         "ignore_above": 256,
-          "index" : "not_analyzed"
+        "ua": {
+          "ignore_above": 256,
+          "index": "not_analyzed",
+          "type": "string"
         },
-        "cache":{
-         "type": "string",
-         "ignore_above": 256,
-          "index" : "not_analyzed"
+        "fip": {
+          "ignore_above": 256,
+          "index": "not_analyzed",
+          "type": "string"
         },
-        "ua":{
-         "type": "string",
-         "ignore_above": 256,
-          "index" : "not_analyzed"
-        },
-        "bu":{
-         "type": "string",
-         "ignore_above": 256,
-          "index" : "not_analyzed"
-        },
-        "ncache":{
-         "type": "string",
-         "ignore_above": 256,
-          "index" : "not_analyzed"
-        },
-        "fip":{
-         "type": "string",
-         "ignore_above": 256,
-          "index" : "not_analyzed"
-        },        
-        "cip":{
-         "type": "string",
-         "ignore_above": 256,
-          "index" : "not_analyzed"
-        },
-        "refer":{
-         "type": "string",
-         "ignore_above": 256,
-          "index" : "not_analyzed"
+        "url": {
+          "index": "not_analyzed",
+          "type": "string"
         },
         "scscost": {
           "type": "long"
+        },
+        "ex": {
+          "ignore_above": 256,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "bu": {
+          "ignore_above": 256,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "refer": {
+          "ignore_above": 256,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "rip": {
+          "ignore_above": 256,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "host": {
+          "ignore_above": 256,
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "time": {
+          "type": "long"
         }
-        
       }
     }
   },

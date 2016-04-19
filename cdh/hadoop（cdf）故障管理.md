@@ -1,4 +1,4 @@
-##hadoop（CDF）故障管理
+##hadoop（CDH）故障管理
 
 ###JournalNode挂载磁盘故障
 
