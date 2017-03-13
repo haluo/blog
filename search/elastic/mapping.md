@@ -107,7 +107,7 @@
   "settings": {
     "index": {
       "number_of_replicas": "1",
-      "number_of_shards": "7"
+      "number_of_shards": "5"
     }
   },
   "mappings": {
@@ -115,7 +115,7 @@
       "_all": {
         "enabled": false
       },
-      "_ttl" : {          "enabled" : true,          "default" : "15d"	  },
+      "_ttl" : {          "enabled" : true,          "default" : "30d"	  },
       "properties": {
         "dept": {
           "type": "string",
@@ -130,7 +130,7 @@
           "index" : "not_analyzed"
         },
         "created": {
-          "type": "long"
+          "type": "date"
         },
         "tp999": {
           "type": "long"
@@ -306,6 +306,50 @@
         "protocol": {
           "type": "string",
           "index": "not_analyzed" 
+        }
+      }
+    }        
+  }
+}
+```
+
+```
+{
+  "settings": {
+    "index": {
+      "number_of_replicas": "1",
+      "number_of_shards": "5"
+    }
+  },
+  "mappings": {
+    "log": {
+      "_all": {
+        "enabled": false
+      },
+      "_ttl" : {
+          "enabled" : true,
+          "default" : "30d"
+      },
+      "properties": {
+        "sip": {
+          "type": "string",
+          "index" : "not_analyzed"
+        },
+        "dip": {
+          "type": "string",
+          "index" : "not_analyzed"
+        },
+        "module": {
+          "type": "string",
+          "index" : "not_analyzed"
+        },
+        "action": {
+          "type": "string",
+          "index" : "not_analyzed"
+        },
+        "time": {
+          "format": "strict_date_optional_time||epoch_millis", 
+          "type": "date"
         }
       }
     }        
