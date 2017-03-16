@@ -1,8 +1,14 @@
 #centos7.3 caffe安装
+
 ##1.硬件
+
+```
 gtx1080*2  无集显
 
+```
+
 ##2.系统
+```
   centos 7.3 minimal 版本
   采用linux text  文本模式安装
   首先安装epel扩展源：
@@ -11,8 +17,10 @@ gtx1080*2  无集显
   sudo yum -y install python-pip
  
 sudo yum -y install python-pip
+```
 
 ##3.nvidia驱动
+
 ```
 依赖包安装：
 yum -y install gcc kernel-devel kernel-headers
@@ -36,6 +44,7 @@ dracut /boot/initramfs-$(uname -r).img $(uname -r)
 官网下载NVIDIA-Linux-x86_64-375.26.run
 执行安装即可
 ```
+
 ## cuda安装
 
 ```
@@ -63,6 +72,7 @@ sudo ./deviceQuery
 ```
 
 ##cudnn安装
+
 ```
 下载 cudnn-8.0-linux-x64-v5.1.tgz
 
@@ -75,6 +85,7 @@ sudo ln -s libcudnn.so.5 libcudnn.so      #生成软链接
 ```
 
 ##安装依赖
+
 ```
 通用依赖
 sudo yum install protobuf-devel leveldb-devel snappy-devel opencv-devel boost-devel hdf5-devel
@@ -122,8 +133,8 @@ $ make check-install
 vim ~/.bashrc
 export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
 
-
 ```
+
 ##配置caffe
 
 ```
